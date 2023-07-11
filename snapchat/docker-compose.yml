@@ -1,0 +1,43 @@
+version: "3"
+services:
+  filters:
+    build: /root/snapchat/
+    ports:
+      - "8085:80"
+    volumes:
+      - "filters-volume"
+    networks:
+      - "hello-network"
+
+
+  snaps:
+    build: /root/snapchat/
+    ports:
+      - "8082:80"
+    volumes:
+      - "snaps-volume"
+    networks:
+      - "hi-network"
+
+
+  streaks:
+    build: /root/snapchat/
+    ports:
+      - "8083:80"
+    volumes:
+      - "streaks-volume"
+    networks:
+      - "bye-network"
+
+networks:
+  hello-network:
+    driver: bridge
+
+  hi-network:
+    driver: bridge
+
+  bye-network:
+    driver: bridge
+
+
+
